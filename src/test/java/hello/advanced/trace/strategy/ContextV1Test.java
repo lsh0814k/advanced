@@ -1,6 +1,7 @@
 package hello.advanced.trace.strategy;
 
 import hello.advanced.trace.strategy.code.strategy.ContextV1;
+import hello.advanced.trace.strategy.code.strategy.Strategy;
 import hello.advanced.trace.strategy.code.strategy.StrategyLogic1;
 import hello.advanced.trace.strategy.code.strategy.StrategyLogic2;
 import lombok.extern.slf4j.Slf4j;
@@ -45,6 +46,48 @@ public class ContextV1Test {
 
         StrategyLogic2 strategyLogic2 = new StrategyLogic2();
         ContextV1 contextV2 = new ContextV1(strategyLogic2);
+        contextV2.execute();
+    }
+
+    /**
+     * 익명 내부 클래스 사용
+     */
+    @Test
+    void strategyV2() {
+        Strategy logic1 = new Strategy() {
+            @Override
+            public void call() {
+                log.info("비즈니스 로직1 실행");
+            }
+        };
+
+        ContextV1 contextV1 = new ContextV1(logic1);
+        log.info("logic1={}", logic1);
+        contextV1.execute();
+
+        Strategy logic2 = new Strategy() {
+            @Override
+            public void call() {
+                log.info("비즈니스 로직2 실행");
+            }
+        };
+
+        ContextV1 contextV2 = new ContextV1(logic2);
+        log.info("logic2={}", logic2);
+        contextV2.execute();
+    }
+
+    /**
+     * 람다식 사용
+     */
+    @Test
+    void strategyV3() {
+
+        ContextV1 contextV1 = new ContextV1(() -> log.info("비즈니스 로직1 실행"));
+        contextV1.execute();
+
+
+        ContextV1 contextV2 = new ContextV1(() -> log.info("비즈니스 로직2 실행"));
         contextV2.execute();
     }
 }
