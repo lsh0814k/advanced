@@ -1,6 +1,5 @@
-package hello.advanced.V4;
+package hello.advanced.trace.V4;
 
-import hello.advanced.trace.TraceStatus;
 import hello.advanced.trace.logtrace.LogTrace;
 import hello.advanced.trace.template.AbstractTemplate;
 import lombok.RequiredArgsConstructor;
