@@ -9,7 +9,8 @@ import org.springframework.context.annotation.Import;
 
 
 @Import({AppV1Config.class, AppV2Config.class})
-@SpringBootApplication(scanBasePackages = "hello.advanced.app.V2")
+@SpringBootApplication(scanBasePackages = "hello.advanced.app.V3")
+//@SpringBootApplication(scanBasePackages = "hello.advanced.app.V2")
 // @SpringBootApplication(scanBasePackages = "hello.advanced.app.V1")
 public class AdvancedApplication {
 
