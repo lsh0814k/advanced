@@ -33,8 +33,8 @@ import org.springframework.context.annotation.Import;
 //@Import(ProxyFactoryConfigV2.class)
 //@Import(BeanPostProcessorConfig.class)
 //@Import(AutoProxyConfig.class)
-@Import(AopConfig.class)
-@SpringBootApplication(scanBasePackages = "hello.advanced.app.V3")
+//@Import(AopConfig.class)
+@SpringBootApplication(scanBasePackages = "hello.advanced.order")
 public class AdvancedApplication {
 
 	public static void main(String[] args) {
